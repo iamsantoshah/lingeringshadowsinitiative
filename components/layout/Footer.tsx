@@ -1,18 +1,77 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ArrowUpRight, Heart } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, Mail, MapPin, Phone, ArrowUp } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon, XIcon } from '@/components/icons/SocialIcons';
 
 export default function Footer() {
+  const whatsappUrl =
+    'https://wa.me/918860799513?text=Hello%20Lingering%20Shadows%20Initiative%2C%20I%20would%20like%20to%20connect.';
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-ink-900 text-parchment-200 border-t border-ink-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+    <footer className="bg-ink-950 text-parchment-200 border-t-2 border-ink-900 relative overflow-hidden">
+      
+      {/* Avant-Garde Kinetic Marquee Banner */}
+      <div className="border-b border-ink-800/80 py-5 overflow-hidden select-none bg-ink-900/40">
+        <div className="flex whitespace-nowrap animate-marquee gap-8 items-center text-parchment-300 font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight opacity-40">
+          <span>THE LINGERING SHADOWS INITIATIVE</span>
+          <span className="text-terracotta-500 font-sans text-sm">✦</span>
+          <span className="italic font-light">WHERE SHADOWS MEET THE LIGHT</span>
+          <span className="text-terracotta-500 font-sans text-sm">✦</span>
+          <span>STORIES THAT DEFY SOCIAL NORMS</span>
+          <span className="text-terracotta-500 font-sans text-sm">✦</span>
+          <span>STRATEGIC CONSTITUTIONAL LITIGATION</span>
+          <span className="text-terracotta-500 font-sans text-sm">✦</span>
+          <span>THE LINGERING SHADOWS INITIATIVE</span>
+          <span className="text-terracotta-500 font-sans text-sm">✦</span>
+        </div>
+      </div>
+
+      {/* Main Colophon Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        
+        {/* Editorial Pull Statement with Redaction Hover Effect */}
+        <div className="border-b border-ink-800/80 pb-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div className="lg:col-span-8 space-y-4">
+              <span className="archival-stamp text-terracotta-400 border-terracotta-500 bg-ink-900 text-[10px]">
+                THE LSI CREED // 2022 - PRESENT
+              </span>
+              <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-parchment-50 leading-tight">
+                &ldquo;Every person is a best-seller with an unwritten story waiting to be{' '}
+                <span className="redacted-bar text-parchment-100" title="Hover to reveal">
+                  honoured & defended
+                </span>
+                .&rdquo;
+              </h3>
+            </div>
+            
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <button
+                onClick={scrollToTop}
+                data-cursor="TOP"
+                aria-label="Scroll back to top"
+                className="group inline-flex items-center gap-3 px-5 py-3 rounded-full border border-ink-800 bg-ink-900/60 hover:bg-terracotta-600 hover:text-parchment-50 text-parchment-300 font-mono text-xs uppercase tracking-widest transition-all"
+              >
+                <span>Return to Summit</span>
+                <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* 4-Column Architectural Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
           
-          {/* Brand & Manifesto */}
-          <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-terracotta-400/40 bg-parchment-50 p-1">
+          {/* Column 1: Brand & Collective Identity (Cols 1-5) */}
+          <div className="lg:col-span-5 space-y-6">
+            <Link href="/" className="inline-flex items-center gap-3.5 group">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-parchment-300 bg-parchment-50 p-1 transition-transform group-hover:scale-105 group-hover:rotate-6">
                 <Image
                   src="/logos/lsi.svg"
                   alt="The Lingering Shadows Initiative"
@@ -22,28 +81,27 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <span className="font-serif text-xl font-bold tracking-tight text-parchment-50 block leading-tight">
+                <span className="font-serif text-2xl font-bold tracking-tight text-parchment-50 block leading-tight group-hover:text-terracotta-400 transition-colors">
                   The Lingering Shadows
                 </span>
-                <span className="text-[11px] tracking-[0.25em] uppercase font-sans font-semibold text-terracotta-400">
-                  Initiative
+                <span className="text-[10px] tracking-[0.25em] uppercase font-mono font-bold text-terracotta-400">
+                  INITIATIVE • A REGISTERED TRUST
                 </span>
               </div>
             </Link>
 
-            <p className="text-parchment-300/80 text-sm leading-relaxed max-w-sm">
-              The eccentric soul of strategic human rights advocacy. Amplifying the voices of the 
-              disenfranchised through constitutional litigation inside courtrooms—and through reporting, 
-              theatre, art, globetrotting, and storytelling beyond them.
+            <p className="text-parchment-300 text-sm leading-relaxed max-w-md font-sans">
+              Frontline constitutional human rights collective defending refugees, stateless communities, and the marginalized through courtroom litigation, live bilingual theatre, investigative journalism, and folklore art.
             </p>
 
+            {/* Social Channels */}
             <div className="flex items-center gap-3 pt-2">
               <a
                 href="https://www.linkedin.com/company/the-lingering-shadows-initiative/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-ink-800 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-colors"
-                aria-label="LinkedIn Profile"
+                className="w-10 h-10 rounded-full bg-ink-900 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-all border border-ink-800 hover:scale-105"
+                aria-label="LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -51,8 +109,8 @@ export default function Footer() {
                 href="https://www.instagram.com/thelsiproject?gwpx=dDdjejY4dnEyNm04"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-ink-800 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-colors"
-                aria-label="Instagram Profile"
+                className="w-10 h-10 rounded-full bg-ink-900 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-all border border-ink-800 hover:scale-105"
+                aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -60,133 +118,125 @@ export default function Footer() {
                 href="https://x.com/thelsiproject?s=11"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-ink-800 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-colors"
-                aria-label="X Profile"
+                className="w-10 h-10 rounded-full bg-ink-900 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-all border border-ink-800 hover:scale-105"
+                aria-label="X (Twitter)"
               >
                 <XIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-ink-900 hover:bg-terracotta-600 flex items-center justify-center text-parchment-200 transition-all border border-ink-800 hover:scale-105"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-base font-semibold text-parchment-50 uppercase tracking-wider text-xs">
-              Explorations
-            </h3>
-            <ul className="space-y-2.5 text-sm">
+          {/* Column 2: Index Registry (Cols 6-8) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-mono text-xs uppercase tracking-widest text-parchment-400 font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500" />
+              <span>COLLECTION INDEX</span>
+            </h4>
+            <ul className="space-y-2.5 text-sm font-sans">
               <li>
-                <Link href="/about" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  About LSI & Origin
+                <Link href="/about" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[01]</span>
+                  <span>About Us & Mandate</span>
                 </Link>
               </li>
               <li>
-                <Link href="/founders" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  Founders & Portfolios
+                <Link href="/stories" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[02]</span>
+                  <span>Stories & Case Docket</span>
                 </Link>
               </li>
               <li>
-                <Link href="/#what-we-do" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  What We Do (4 Pillars)
+                <Link href="/team" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[03]</span>
+                  <span>Team, Founders & Art</span>
                 </Link>
               </li>
               <li>
-                <Link href="/stories" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  Our Stories
+                <Link href="/globetrotting" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[04]</span>
+                  <span>Globetrotting Travelogue</span>
                 </Link>
               </li>
               <li>
-                <Link href="/globetrotting" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  Globetrotting & Field Reports
+                <Link href="/spaces" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[05]</span>
+                  <span>Our Other Spaces</span>
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors">
-                  Our Team & Panel Advocates
+                <Link href="/contact" className="text-parchment-300 hover:text-terracotta-400 transition-colors flex items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-terracotta-500">[06]</span>
+                  <span>Write to Us Directly</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Spaces & Ecosystem */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-base font-semibold text-parchment-50 uppercase tracking-wider text-xs">
-              Other Spaces
-            </h3>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/spaces#young-lawyers-network" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors flex items-center gap-1">
-                  <span>Young Lawyers Network</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/spaces#young-lawyers-diary" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors flex items-center gap-1">
-                  <span>Young Lawyers Diary</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/spaces#rising-peacock" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors flex items-center gap-1">
-                  <span>Rising Peacock</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/spaces#virtuosity-legal" className="text-parchment-300/70 hover:text-terracotta-400 transition-colors flex items-center gap-1">
-                  <span>Virtuosity Legal</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60" />
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="/docs/unveiling-tales-untold-ujjaini.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-parchment-300/70 hover:text-terracotta-400 transition-colors flex items-center gap-1"
-                >
-                  <span>Tales Untold Portfolio</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Column 3: Regional Registries & Official Bureau (Cols 9-12) */}
+          <div className="lg:col-span-4 space-y-4">
+            <h4 className="font-mono text-xs uppercase tracking-widest text-parchment-400 font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-sage-500" />
+              <span>OFFICIAL REGISTRY & DESK</span>
+            </h4>
 
-          {/* Contact Details */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-base font-semibold text-parchment-50 uppercase tracking-wider text-xs">
-              Get in Touch
-            </h3>
-            <ul className="space-y-3 text-sm text-parchment-300/80">
-              <li className="flex items-start gap-2.5">
+            <div className="space-y-3 font-mono text-xs text-parchment-300">
+              <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-terracotta-400 shrink-0 mt-0.5" />
-                <span>Door No. 24, ST-6 (Chitra Nagar), Narasimhanaickenpalayam, Coimbatore - 641017</span>
-              </li>
-              <li className="flex items-center gap-2.5">
+                <span className="leading-relaxed">
+                  Registered Trust Office: Door No. 24, ST-6 (Chitra Nagar), Narasimhanaickenpalayam, Coimbatore, Tamil Nadu - 641017
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <a href="tel:+918860799513" className="hover:text-terracotta-400 transition-colors">
-                  +91 88607 99513
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
+                <span>+91 88607 99513</span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <a href="mailto:lingeringshadowsinitiative@gmail.com" className="hover:text-terracotta-400 transition-colors break-all">
-                  lingeringshadowsinitiative@gmail.com
-                </a>
-              </li>
-            </ul>
+                <span>lingeringshadowsinitiative@gmail.com</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-terracotta-600 hover:bg-terracotta-700 text-parchment-50 font-mono text-xs uppercase tracking-wider transition-colors shadow-sm"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Join Official WhatsApp Channel</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-ink-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment-400/60">
-          <p>© {new Date().getFullYear()} The Lingering Shadows Initiative (LSI). All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            <span>Every person is a best seller</span>
-            <Heart className="w-3 h-3 text-terracotta-500 fill-terracotta-500" />
-            <span>Told with care & consent</span>
-          </p>
+        {/* Bottom Colophon Strip with Coordinates */}
+        <div className="mt-16 pt-8 border-t border-ink-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-parchment-400">
+          <div>
+            © {new Date().getFullYear()} The Lingering Shadows Initiative — A Registered Trust.
+          </div>
+          <div className="flex flex-wrap items-center gap-4 text-[10px]">
+            <span>DELHI 28°36′N 77°12′E</span>
+            <span>•</span>
+            <span>COIMBATORE 11°00′N 76°57′E</span>
+            <span>•</span>
+            <span>ASSAM 26°12′N 92°56′E</span>
+          </div>
         </div>
+
       </div>
     </footer>
   );

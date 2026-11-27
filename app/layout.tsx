@@ -2,12 +2,15 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import CustomCursor from '@/components/creative/CustomCursor';
+import AmbientSoundEngine from '@/components/creative/AmbientSoundEngine';
+import InteractiveCanvasNebula from '@/components/creative/InteractiveCanvasNebula';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lingeringshadowsinitiative.com'),
   title: 'The Lingering Shadows Initiative | Where Shadows Meet the Light',
   description:
-    'A program to amplify the voices of the disenfranchised and marginalised social groups through litigation within courtrooms and through reporting, advocacy, art, storytelling, theatre and films outside the courtrooms.',
+    'Frontline constitutional human rights collective defending refugees, stateless communities, and the marginalized through courtroom litigation, live bilingual theatre, investigative journalism, and folklore art.',
   icons: {
     icon: '/logos/lsi.svg',
     shortcut: '/logos/lsi.svg',
@@ -39,9 +42,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col font-sans bg-parchment-100 text-ink-900 selection:bg-terracotta-500 selection:text-parchment-50 antialiased">
+      <body className="min-h-screen flex flex-col font-sans bg-parchment-100 text-ink-950 selection:bg-terracotta-600 selection:text-parchment-50 antialiased relative">
+        {/* Filmic Grain Noise Layer */}
+        <div className="film-grain" />
+
+        {/* Ambient Canvas Physics Particle Field */}
+        <InteractiveCanvasNebula />
+
+        {/* Magnetic Custom Cursor */}
+        <CustomCursor />
+
+        {/* Web Audio Ambient Atmosphere Controller */}
+        <AmbientSoundEngine />
+
+        {/* Sticky Avant-Garde Navigation */}
         <Navbar />
-        <main className="flex-grow">{children}</main>
+
+        {/* Main Content Area */}
+        <main className="flex-grow relative z-10">{children}</main>
+
+        {/* Monolithic Editorial Footer */}
         <Footer />
       </body>
     </html>

@@ -1,100 +1,67 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { MessageCircle, Mail, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, Mail, Phone, HeartHandshake } from 'lucide-react';
 
 export default function CommunityCTA() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-    }
-  };
+  const whatsappUrl =
+    'https://wa.me/918860799513?text=Hello%20Lingering%20Shadows%20Initiative%2C%20I%20would%20like%20to%20join%20the%20community.';
 
   return (
-    <section className="py-20 lg:py-28 bg-parchment-100 parchment-texture">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-36 bg-ink-950 text-parchment-100 relative overflow-hidden border-t-2 border-ink-900">
+      {/* Background chiaroscuro ember glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-tr from-terracotta-900/30 via-terracotta-700/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="rounded-[36px] bg-gradient-to-br from-ink-900 via-ink-800 to-terracotta-950 text-parchment-100 p-8 sm:p-14 lg:p-16 shadow-2xl relative overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center space-y-8">
           
-          {/* Subtle decorative glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-terracotta-600/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-sage-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-ink-900 border border-terracotta-600/70 text-terracotta-400 font-mono text-xs uppercase tracking-widest shadow-md">
+            <span className="w-2 h-2 rounded-full bg-terracotta-500 animate-ping" />
+            <span>JOIN THE TELLING // OPEN INVITATION</span>
+          </div>
 
-          <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-            
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-parchment-50/10 border border-parchment-200/20 text-ochre-300 text-xs font-semibold tracking-widest uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-ochre-300" />
-              <span>Join the Telling</span>
-            </div>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-parchment-50 leading-[1.04]">
+            No one is without a story. <br />
+            <span className="italic font-light text-terracotta-400">
+              Some are only denied a listener.
+            </span>
+          </h2>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-parchment-50 leading-tight">
-              Every story matters. <br />
-              <span className="italic font-normal text-terracotta-400">Write to us. We will listen.</span>
-            </h2>
+          <p className="text-parchment-300 text-base sm:text-lg font-normal leading-relaxed font-sans max-w-xl mx-auto">
+            Write to us. We will listen. Tell us, in your own words, what you or your community are facing. Every message is received with strict confidentiality, dignity, and care.
+          </p>
 
-            <p className="text-parchment-300/90 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-              Whether you need legal aid, wish to volunteer, collaborate on art or theatre, or join 
-              our ongoing workshops, our doors and ears are open.
-            </p>
+          {/* Action CTAs */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="COMMUNITY"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-terracotta-600 hover:bg-terracotta-700 text-parchment-50 font-mono text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-glow-terracotta active:scale-95 group"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Join WhatsApp Community</span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
 
-            {/* Actions Grid */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://chat.whatsapp.com/invite"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-parchment-50 font-semibold text-xs tracking-wider uppercase transition-all shadow-lg active:scale-95"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Join WhatsApp Updates</span>
-              </a>
+            <Link
+              href="/contact"
+              data-cursor="WRITE"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-ink-900 hover:bg-ink-850 text-parchment-100 border border-ink-800 hover:border-terracotta-500 font-mono text-xs uppercase tracking-wider transition-all shadow-sm"
+            >
+              <Mail className="w-4 h-4 text-terracotta-400" />
+              <span>Write To Us Directly</span>
+            </Link>
+          </div>
 
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-parchment-50 hover:bg-parchment-200 text-ink-900 font-semibold text-xs tracking-wider uppercase transition-all"
-              >
-                <Mail className="w-4 h-4 text-terracotta-600" />
-                <span>Tell Us Your Story</span>
-              </Link>
-            </div>
-
-            {/* Newsletter Subscription */}
-            <div className="pt-8 border-t border-parchment-200/10 max-w-md mx-auto">
-              <p className="text-xs text-parchment-400/80 mb-3 tracking-wide uppercase font-semibold">
-                Subscribe to Dispatch & Case Updates
-              </p>
-              {subscribed ? (
-                <div className="flex items-center justify-center gap-2 text-xs font-medium text-sage-300 bg-sage-900/40 border border-sage-500/40 py-2.5 px-4 rounded-full">
-                  <CheckCircle2 className="w-4 h-4 text-sage-400" />
-                  <span>Thank you for joining our circle. We will keep you posted.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-parchment-50/10 border border-parchment-200/20 p-1.5 rounded-full">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full bg-transparent px-4 py-2 text-xs text-parchment-100 placeholder-parchment-400 focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="p-2.5 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-parchment-50 transition-colors shrink-0"
-                    aria-label="Subscribe to newsletter"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                  </button>
-                </form>
-              )}
-            </div>
-
+          <div className="pt-10 border-t border-ink-800/80 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-parchment-400">
+            <span>lingeringshadowsinitiative@gmail.com</span>
+            <span>•</span>
+            <span>+91 88607 99513</span>
+            <span>•</span>
+            <span>Coimbatore, Tamil Nadu</span>
           </div>
 
         </div>

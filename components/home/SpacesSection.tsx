@@ -1,143 +1,162 @@
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
-import { ArrowUpRight, BookOpen, Feather, GraduationCap, Compass } from 'lucide-react';
+import Image from 'next/image';
+import { Compass, Feather, GraduationCap, BookOpen, ArrowUpRight, Download, ExternalLink } from 'lucide-react';
 
 const SPACES = [
   {
     id: 'young-lawyers-network',
     title: 'The Young Lawyers Network',
-    tag: 'Human Rights Collective',
+    subtitle: 'Dynamic Human Rights Practice',
+    tag: 'PROFESSIONAL LEGAL CADRE',
+    accent: 'terracotta',
+    borderClass: 'border-terracotta-600',
+    badgeClass: 'text-terracotta-700 border-terracotta-600 bg-terracotta-50',
     icon: Compass,
-    desc: 'A network of dynamic, inventive, skilled, articulate, accountable and professional human rights lawyers with exposure in the legal field and immense ambition to expand human rights lawyering as an active, sustainable practice.',
-    href: '/spaces#young-lawyers-network',
-    docLink: '/docs/young-lawyers-network-proposal.pdf',
-    docText: 'Download Proposal PDF',
-    logo: null,
+    description:
+      'A network of dynamic, inventive, skilled, articulate, accountable and professional human rights lawyers with exposure in the legal field and immense ambition to develop and expand human rights lawyering as a lifelong practice.',
+    actionText: 'Download Proposal PDF',
+    actionHref: '/docs/young-lawyers-network-proposal.pdf',
+    isDownload: true,
   },
   {
     id: 'young-lawyers-diary',
     title: 'The Young Lawyers Diary',
-    tag: 'Lived Experiences & Blog',
+    subtitle: 'Lived Experiences & Field Accounts',
+    tag: 'EDITORIAL REFLECTIONS',
+    accent: 'sage',
+    borderClass: 'border-sage-700',
+    badgeClass: 'text-sage-800 border-sage-700 bg-sage-50',
     icon: Feather,
-    desc: 'A reflective journal where emerging advocates share raw, unvarnished lived experiences from detention hearings, settlement field visits, client dialogues, and courtroom trials.',
-    href: '/spaces#young-lawyers-diary',
-    docLink: null,
-    docText: null,
-    logo: null,
+    description:
+      'A dedicated platform and blog for young lawyers to share their lived experiences from courtrooms, detention centres, rural legal aid clinics, and community visits—demystifying the psychological realities of justice work.',
+    actionText: 'Explore Diary Space',
+    actionHref: '/spaces#young-lawyers-diary',
+    isDownload: false,
   },
   {
     id: 'rising-peacock',
     title: 'Rising Peacock',
-    tag: 'Educational Wing',
+    subtitle: 'Future-Ready Student Development',
+    tag: 'EDUCATIONAL WING',
+    accent: 'ochre',
+    borderClass: 'border-ochre-600',
+    badgeClass: 'text-ochre-700 border-ochre-600 bg-ochre-50',
     icon: GraduationCap,
-    desc: 'The educational wing of Chamber MU and LSI that actively works towards transforming education through globally aligned learning, educator excellence, and future-ready student development.',
-    href: 'https://risingpeacock.org',
-    isExternal: true,
-    logo: '/logos/rising-peacock.svg',
+    description:
+      'The educational wing of Chamber.MU and LSI that actively works towards transforming education through globally aligned learning, educator excellence, and critical student development across institutions.',
+    actionText: 'Visit Rising Peacock',
+    actionHref: 'https://risingpeacock.in',
+    isDownload: false,
+    external: true,
   },
   {
     id: 'virtuosity-legal',
     title: 'Virtuosity Legal',
-    tag: 'Knowledge Partner',
+    subtitle: 'Independent Legal Scholarship',
+    tag: 'KNOWLEDGE PARTNER',
+    accent: 'ink',
+    borderClass: 'border-ink-900',
+    badgeClass: 'text-ink-950 border-ink-900 bg-parchment-200',
     icon: BookOpen,
-    desc: 'The Knowledge Partner to Chamber MU and LSI—an independent, student-driven initiative with a clear vision to bring clarity, authenticity, and depth to the study and critical practice of law.',
-    href: 'https://virtuositylegal.com',
-    isExternal: true,
-    logo: '/logos/virtuosity-legal.png',
+    description:
+      'The Knowledge Partner to Chamber.MU and LSI, Virtuosity Legal is an independent, student-driven initiative with a clear vision: to bring clarity, authenticity, and depth to the study and practice of law.',
+    actionText: 'Visit Virtuosity Legal',
+    actionHref: 'https://virtuositylegal.com',
+    isDownload: false,
+    external: true,
   },
 ];
 
 export default function SpacesSection() {
   return (
-    <section className="py-20 lg:py-32 bg-parchment-50 border-b border-parchment-300/80">
+    <section className="py-20 lg:py-32 bg-parchment-50 border-b border-parchment-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] font-bold text-terracotta-600 block">
-            Our Ecosystem
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-ink-900 leading-tight">
-            Our other spaces.
-          </h2>
-          <p className="text-ink-600 text-base sm:text-lg">
-            Rooms where legal strategy, education, and lived experiences are made, shared, and elevated.
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-ink-900/15 pb-8 mb-14">
+          <div className="space-y-3 max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-monumental text-terracotta-600 font-bold block">
+              ECOSYSTEM & SISTER SPACES
+            </span>
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-950">
+              Rooms where stories are made and shared.
+            </h2>
+          </div>
+          <p className="text-ink-800 text-sm sm:text-base font-sans max-w-md leading-relaxed">
+            Step into any room in the connected ecosystem of LSI and Chamber.MU. Each space nurtures a distinct facet of human rights.
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Distinct Spaces Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {SPACES.map((space) => {
+          {SPACES.map((space, idx) => {
             const Icon = space.icon;
             return (
               <div
                 key={space.id}
-                className="rounded-3xl bg-parchment-100 border border-parchment-300 p-8 shadow-postcard flex flex-col justify-between hover:border-terracotta-300 transition-all group"
+                className="rounded-3xl bg-parchment-100 border-2 border-ink-900 p-8 sm:p-10 shadow-brutalist flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="space-y-4">
-                  
-                  {/* Top Bar with Icon / Logo */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-parchment-50 border border-parchment-300/70 p-2 flex items-center justify-center text-terracotta-600 shadow-sm group-hover:scale-105 transition-transform">
-                      {space.logo ? (
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={space.logo}
-                            alt={space.title}
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <Icon className="w-6 h-6" />
-                      )}
-                    </div>
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-ink-500 bg-parchment-200/80 px-3 py-1 rounded-full">
-                      {space.tag}
+                <div className="space-y-5">
+                  <div className="flex items-center justify-between border-b border-parchment-300 pb-3.5">
+                    <span className={`archival-stamp ${space.badgeClass}`}>
+                      ROOM 0{idx + 1} // {space.tag}
                     </span>
+                    <Icon className="w-5 h-5 text-ink-700 transition-transform group-hover:scale-110" />
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="font-serif text-2xl font-bold text-ink-900 group-hover:text-terracotta-600 transition-colors">
-                    {space.title}
-                  </h3>
-                  <p className="text-sm text-ink-700 leading-relaxed">
-                    {space.desc}
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-ink-950 group-hover:text-terracotta-700 transition-colors">
+                      {space.title}
+                    </h3>
+                    <p className="font-mono text-xs text-ink-500 uppercase tracking-wider mt-0.5">
+                      {space.subtitle}
+                    </p>
+                  </div>
+
+                  <p className="text-sm text-ink-800 leading-relaxed font-sans">
+                    {space.description}
                   </p>
                 </div>
 
-                {/* Footer links */}
-                <div className="pt-6 mt-6 border-t border-parchment-300/80 flex items-center justify-between">
-                  {space.isExternal ? (
+                <div className="pt-6 mt-6 border-t border-parchment-300 flex items-center justify-between">
+                  {space.isDownload ? (
                     <a
-                      href={space.href}
+                      href={space.actionHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700"
+                      data-cursor="PDF"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-terracotta-700 font-bold hover:underline"
                     >
-                      <span>Visit Initiative</span>
-                      <ArrowUpRight className="w-4 h-4" />
+                      <Download className="w-4 h-4" />
+                      <span>{space.actionText}</span>
+                    </a>
+                  ) : space.external ? (
+                    <a
+                      href={space.actionHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="EXTERNAL"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-terracotta-700 font-bold hover:underline"
+                    >
+                      <span>{space.actionText}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   ) : (
                     <Link
-                      href={space.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700"
+                      href={space.actionHref}
+                      data-cursor="EXPLORE"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-terracotta-700 font-bold hover:underline"
                     >
-                      <span>Explore Space</span>
+                      <span>{space.actionText}</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   )}
-
-                  {space.docLink && (
-                    <a
-                      href={space.docLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-medium text-ink-600 hover:text-ink-900 underline underline-offset-4"
-                    >
-                      {space.docText}
-                    </a>
-                  )}
+                  
+                  <span className="p-2 rounded-full bg-ink-950 text-parchment-50 group-hover:bg-terracotta-600 transition-colors">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             );

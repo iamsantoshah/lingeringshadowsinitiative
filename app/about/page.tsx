@@ -1,96 +1,103 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShieldCheck, HeartHandshake, Compass, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Scale, Shield, Sparkles, BookOpen, Compass, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us | The Lingering Shadows Initiative',
   description:
-    'Discover the origin, mission, 12 manifestations, and core constitutional litigation objectives of the Lingering Shadows Initiative.',
+    'Overview, Mission & Vision, and Core Strategic Objectives of The Lingering Shadows Initiative (LSI).',
 };
 
 const MANIFESTATIONS = [
-  'Pro-bono litigation for marginalized communities',
-  'Para-legal advisory forums across migrant settlements',
-  'Specialised legal & rights-awareness workshops',
-  'Ground reports, academic research papers, and digital blogs',
-  'Educational and extra-curricular competitions for students',
-  'Seminars, talks, conferences, and high-level panels',
-  'Representation and collaboration with international forums (UN CSW)',
-  'Training and T-T-T Sessions (POSH, POCSO, Cyber Crimes)',
-  'Specialized human rights certificate courses',
-  'Podcasts centering marginalized lived experiences',
-  'Live theatre productions, film screenings & storytelling',
-  'Visual art exhibitions hosted across embassies and galleries',
+  { num: '01', title: 'Pro-Bono Constitutional Litigation', desc: 'Challenging indefinite detentions, summary deportations, and defending fundamental rights before Supreme Court and High Courts.' },
+  { num: '02', title: 'Para-Legal Advisory Forums', desc: 'Direct on-ground legal clinics in marginalized settlements across Delhi NCR, Assam, and Tamil Nadu.' },
+  { num: '03', title: 'Specialised Legal Aid Workshops', desc: 'Practical training on citizenship documentation, criminal procedure, and fundamental rights literacy.' },
+  { num: '04', title: 'Ground Reports, Papers & Digital Blogs', desc: 'Empirical whitepapers, investigative dossiers (The Parchaayi Project), and national newspaper columns.' },
+  { num: '05', title: 'Educational Competitions for Students', desc: 'Debates, constitutional moot courts, and essay prizes fostering democratic ethos in colleges and schools.' },
+  { num: '06', title: 'Conferences, Talks & Panel Dialogues', desc: 'Public convenings bringing together retired judges, litigators, displaced families, and academics.' },
+  { num: '07', title: 'Multilateral International Collaborations', desc: 'Submissions to United Nations bodies (including UN CSW) carrying frontline testimonies into global forums.' },
+  { num: '08', title: 'T-T-T Sessions (POSH, POCSO, Cyber)', desc: 'Training-of-Trainers programs building organizational capacity on workplace safety and child protection.' },
+  { num: '09', title: 'Certificate Legal Courses', desc: 'Structured academic curricula on refugee jurisprudence, statelessness, and feminist lawyering.' },
+  { num: '10', title: 'Podcasts & Oral History Recordings', desc: 'Preserving unwritten histories and recorded interviews with community organizers and elders.' },
+  { num: '11', title: 'Live Theatre, Screenings & Storytelling', desc: 'Bilingual theatrical productions in English and Tamil, and community screenings of independent cinema.' },
+  { num: '12', title: 'Fine Art & Painting Exhibitions', desc: 'Visual arts displayed across international embassies and galleries, translating human struggles into form.' },
 ];
 
 const OBJECTIVES = [
   {
+    num: '01',
     title: 'Protection of Stateless Persons',
-    desc: 'Shielding stateless individuals and migrant workers vulnerable to unlawful detention, indefinite internment, and forced deportation through high-stakes strategic constitutional litigation.',
+    pillar: 'STRATEGIC LITIGATION',
+    desc: 'Protection of stateless persons who are vulnerable to unlawful detentions and even summary deportation through strategic constitutional litigation before Indian High Courts and the Supreme Court.',
   },
   {
+    num: '02',
     title: 'Fundamental Rights in Detention Centres',
-    desc: 'Direct court intervention to enforce the non-negotiable right to life, personal liberty, humane treatment, and essential healthcare for detainees housed in holding centers across India.',
+    pillar: 'ARTICLE 21 DEFENSE',
+    desc: 'Strategic litigation to strictly implement the non-derogable right to life, bodily dignity, personal liberty, and essential healthcare for detainees confined in holding facilities.',
   },
   {
-    title: 'Self-Sustaining Cadre of Advocates',
-    desc: 'Building, mentoring, and funding a resilient team of dedicated young lawyers and researchers equipped to defend citizenship and human dignity far beyond project timelines.',
+    num: '03',
+    title: 'Building a Self-Sustaining Legal Cadre',
+    pillar: 'FUTURE DEFENDERS',
+    desc: 'To train, mentor, and cultivate a self-sustaining network of dedicated young lawyers and forensic researchers who champion citizenship and refugee rights beyond project timelines.',
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="py-16 sm:py-24 bg-parchment-100 parchment-texture">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-16 sm:py-24 bg-parchment-100 parchment-pattern">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
         
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <span className="text-xs uppercase tracking-[0.25em] font-bold text-terracotta-600 block">
-            About Our Initiative
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-ink-900 leading-tight">
-            Where shadows meet the light.
+        {/* Page Editorial Header */}
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2">
+            <span className="archival-stamp text-terracotta-700 border-terracotta-600 bg-parchment-50">
+              MISSION, ORIGINS & STRATEGIC MANDATE
+            </span>
+          </div>
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-ink-950 leading-tight">
+            Where the lingering shadows <br />
+            <span className="italic font-normal text-terracotta-700">meet the light.</span>
           </h1>
-          <p className="text-ink-600 text-lg leading-relaxed font-sans">
-            The Lingering Shadows Initiative (LSI) is a program to amplify the voices of 
-            the disenfranchised and marginalised social groups through litigation within courtrooms 
-            and through reporting, advocacy, art, storytelling, theatre and films outside the courtrooms.
+          <p className="text-ink-800 text-lg sm:text-xl leading-relaxed font-sans max-w-2xl mx-auto">
+            A program to amplify the voices of the disenfranchised and marginalised social groups through litigation within courtrooms and through reporting, advocacy, art, storytelling, theatre and films outside the courtrooms.
           </p>
         </div>
 
-        {/* Origin Story Feature */}
-        <div className="rounded-3xl bg-parchment-50 border border-parchment-300 p-8 sm:p-14 shadow-postcard">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        {/* Overview Broadsheet */}
+        <div className="rounded-3xl bg-parchment-50 border-2 border-ink-900 p-8 sm:p-14 shadow-brutalist">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-7 space-y-6 text-ink-800 leading-relaxed text-base sm:text-lg">
-              <span className="text-xs font-bold uppercase tracking-widest text-terracotta-600 block">
-                The Origin • 2022
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900">
-                From an academic enquiry to a pro-bono lifeline.
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-px bg-terracotta-600" />
+                <span className="font-mono text-xs uppercase tracking-monumental text-terracotta-600 font-bold block">
+                  FOUNDED 2022 • UJJAINI CHATTERJI & MAYURAPRIYAN THANGAVEL
+                </span>
+              </div>
+              
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-ink-950 leading-tight">
+                Extending legal and paralegal support to the nameless and stateless.
               </h2>
-              <p>
-                In 2022, advocates <strong>Ujjaini Chatterji</strong> and <strong>Mayurapriyan Thangavel</strong> founded 
-                the Lingering Shadows Initiative. What started off as an academic endeavour has blossomed 
-                into a pro-bono litigation program extending legal and paralegal support to the nameless, 
-                stateless persons living on the fringes of bustling cities.
+              
+              <p className="drop-cap font-sans">
+                In 2022, Ujjaini Chatterji, along with Mayurapriyan Thangavel, Advocate, founded the Lingering Shadows Initiative through which their Team of Advocates and paralegals regularly visit the communities of migrant workers and refugees, record their stories and narrative for publication in various mediums.
               </p>
-              <p className="text-ink-700 font-serif italic text-lg sm:text-xl border-l-2 border-terracotta-500 pl-4 my-2">
-                &ldquo;Battling for mere survival from the margins of civil societies, and lingering 
-                in the shadows of tall rights of freedom and liberty asking to be counted, recognised and treated as humans.&rdquo;
+              
+              <p className="font-sans">
+                The team of advocates also provides extensive legal consultations, representations and training, to the workers, women and refugees living in Delhi NCR, Assam and Tamil Nadu, which impacts 1,500 families across India.
               </p>
-              <p className="text-sm sm:text-base text-ink-700">
-                Our team of advocates and paralegals regularly visits the communities of migrant workers 
-                and refugees, records their stories for publication in diverse mediums, and provides 
-                extensive legal consultations, representations, and training across Delhi NCR, Assam, and Tamil Nadu—impacting 
-                over <strong>1,500 families</strong>.
-              </p>
+              
+              <blockquote className="my-4 p-6 rounded-2xl bg-parchment-100 border-l-4 border-terracotta-600 font-serif italic text-base sm:text-lg text-ink-950 leading-relaxed shadow-sm">
+                &ldquo;What started off as an academic endeavour has blossomed into a pro-bono litigation program that extends legal and paralegal support to the nameless, stateless persons living on the fringes of bustling cities; battling for mere survival from the margins of civil societies, and lingering in the shadows of tall rights of freedom and liberty asking to be counted, recognised and treated as humans.&rdquo;
+              </blockquote>
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-sm rounded-2xl bg-parchment-100 border border-parchment-300 p-6 text-center space-y-4">
-                <div className="relative w-40 h-40 mx-auto">
+              <div className="w-full max-w-sm rounded-3xl bg-parchment-100 border-2 border-ink-900 p-8 text-center space-y-5 shadow-brutalist">
+                <div className="relative w-44 h-44 mx-auto">
                   <Image
                     src="/logos/lsi.svg"
                     alt="LSI Emblem"
@@ -98,12 +105,15 @@ export default function AboutPage() {
                     className="object-contain"
                   />
                 </div>
-                <div className="border-t border-parchment-300/80 pt-4">
-                  <h3 className="font-serif font-bold text-lg text-ink-900">
-                    The Eccentric Soul of Chamber MU
+                <div className="border-t border-parchment-300 pt-5 space-y-1.5 font-mono">
+                  <h3 className="font-serif font-bold text-2xl text-ink-950">
+                    The Lingering Shadows
                   </h3>
-                  <p className="text-xs text-ink-600 mt-1">
-                    LSI operates in close synergy with Chamber MU to deliver strategic, fearless feminist lawyering.
+                  <p className="text-xs text-terracotta-700 font-bold uppercase tracking-widest">
+                    INITIATIVE • A REGISTERED TRUST
+                  </p>
+                  <p className="text-[11px] text-ink-600 font-sans mt-2 leading-relaxed">
+                    Door No. 24, ST-6 (Chitra Nagar), Narasimhanaickenpalayam, Coimbatore, Tamil Nadu - 641017
                   </p>
                 </div>
               </div>
@@ -112,32 +122,35 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* 3 Core Legal Objectives */}
-        <div className="space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-sage-700 block">
-              Strategic Focus
+        {/* 12 Channels of Living the Vision */}
+        <div className="rounded-3xl bg-ink-950 text-parchment-100 p-8 sm:p-14 border-2 border-ink-900 shadow-2xl space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs text-terracotta-400 uppercase tracking-monumental font-bold">
+              MISSION & LIVING PRAXIS
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900">
-              Three Non-Negotiable Objectives
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-parchment-50 leading-tight">
+              The LSI lives its vision by supporting:
             </h2>
+            <p className="text-parchment-300 text-sm sm:text-base font-sans">
+              Twelve concrete disciplines through which we defend human rights and tell unwritten stories.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {OBJECTIVES.map((obj, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {MANIFESTATIONS.map((item) => (
               <div
-                key={i}
-                className="rounded-3xl bg-parchment-50 border border-parchment-300 p-8 shadow-sm flex flex-col justify-between hover:border-terracotta-300 transition-all"
+                key={item.num}
+                className="p-6 rounded-2xl bg-ink-900/90 border border-ink-800 hover:border-terracotta-500 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
-                <div className="space-y-4">
-                  <div className="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center font-serif font-bold text-lg">
-                    0{i + 1}
-                  </div>
-                  <h3 className="font-serif text-xl font-bold text-ink-900">
-                    {obj.title}
+                <div className="space-y-2">
+                  <span className="font-mono text-xs text-terracotta-400 font-bold block">
+                    [{item.num}]
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-parchment-100 group-hover:text-terracotta-400 transition-colors">
+                    {item.title}
                   </h3>
-                  <p className="text-sm text-ink-700 leading-relaxed">
-                    {obj.desc}
+                  <p className="text-xs text-parchment-300 font-sans leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -145,44 +158,65 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Mission & Vision: 12 Manifestations */}
-        <div className="rounded-3xl bg-parchment-50 border border-parchment-300 p-8 sm:p-14 shadow-sm space-y-8">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-terracotta-600 block">
-              Mission & Vision
+        {/* 3 Core Strategic Pillars */}
+        <div className="space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-terracotta-700 font-bold block">
+              OBJECTIVES OF LSI
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900">
-              How LSI Lives Its Vision
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-ink-950">
+              Core Strategic Pillars
             </h2>
-            <p className="text-sm sm:text-base text-ink-600">
-              Our multifaceted framework spans twelve active disciplines, bridging courts and culture.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-4">
-            {MANIFESTATIONS.map((item, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {OBJECTIVES.map((obj) => (
               <div
-                key={idx}
-                className="flex items-start gap-3 p-4 rounded-2xl bg-parchment-100/70 border border-parchment-200"
+                key={obj.num}
+                className="rounded-3xl bg-parchment-50 border-2 border-ink-900 p-8 sm:p-10 shadow-brutalist flex flex-col justify-between space-y-5"
               >
-                <CheckCircle2 className="w-5 h-5 text-terracotta-600 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium text-ink-800 leading-snug">
-                  {item}
-                </span>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b border-parchment-300 pb-3">
+                    <span className="font-mono text-xs font-bold text-terracotta-700">
+                      PILLAR {obj.num}
+                    </span>
+                    <span className="archival-stamp text-ink-900 border-ink-900 bg-parchment-100 text-[9px]">
+                      {obj.pillar}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-ink-950">
+                    {obj.title}
+                  </h3>
+                  <p className="text-sm text-ink-800 leading-relaxed font-sans">
+                    {obj.desc}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-parchment-300 font-mono text-[10px] text-ink-500 uppercase">
+                  CONSTITUTIONAL TRUST MANDATE
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center pt-8">
-          <Link
-            href="/founders"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-terracotta-600 hover:bg-terracotta-700 text-parchment-50 font-semibold text-xs tracking-wider uppercase shadow-md transition-all"
-          >
-            <span>Meet Our Founders & Portfolios</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* Direct Link to Team Page */}
+        <div className="p-8 sm:p-14 rounded-3xl bg-parchment-50 border-2 border-ink-900 text-center space-y-6 shadow-brutalist">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-950">
+            Meet the Founders & Legal Team
+          </h2>
+          <p className="text-sm sm:text-base text-ink-700 font-sans max-w-xl mx-auto">
+            Discover the advocates, panel lawyers, and researchers of LSI, along with the creative portfolios of founders Ujjaini Chatterji and Mayurapriyan Thangavel.
+          </p>
+          <div>
+            <Link
+              href="/team"
+              data-cursor="TEAM"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-terracotta-600 hover:bg-terracotta-700 text-parchment-50 font-mono text-xs uppercase tracking-wider transition-colors shadow-md active:scale-95 group"
+            >
+              <span>View Team & Founders Page</span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </div>
         </div>
 
       </div>

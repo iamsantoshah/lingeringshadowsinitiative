@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,60 +7,160 @@
 :root {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --background: #FAF7F2;
-  --foreground: #1D1619;
+  --font-mono: 'Space Mono', monospace;
+  --font-display: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-modern: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  
+  --bg-primary: #FAF6EE;
+  --text-primary: #141113;
+  --accent-terracotta: #B92815;
+  --accent-sage: #3D6142;
+  --accent-ochre: #BF9533;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  scroll-behavior: smooth;
-}
-
-::selection {
-  background-color: #CB5141;
-  color: #FAF7F2;
-}
-
-/* Custom whimsical flourishes */
-.parchment-texture {
-  background-color: #FAF7F2;
-  background-image: radial-gradient(#D9CBBB 0.75px, transparent 0.75px), radial-gradient(#D9CBBB 0.75px, #FAF7F2 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-}
-
-.postcard-border {
-  border: 1px solid #EAE1D7;
-  box-shadow: 0 4px 20px -2px rgba(20, 14, 16, 0.05);
+  overflow-x: hidden;
   position: relative;
 }
 
-.postcard-border::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px dashed #D9CBBB;
-  pointer-events: none;
-  border-radius: inherit;
+::selection {
+  background-color: #B92815;
+  color: #FAF6EE;
 }
 
-/* Custom scrollbar */
+/* Filmic Grain Noise Overlay */
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.045"/%3E%3C/svg%3E') repeat 0 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.75;
+}
+
+/* Parchment subtle texture */
+.parchment-pattern {
+  background-color: #FAF6EE;
+  background-image: 
+    radial-gradient(#D5C7B0 0.65px, transparent 0.65px), 
+    radial-gradient(#D5C7B0 0.65px, #FAF6EE 0.65px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Archival Stamp Style */
+.archival-stamp {
+  border: 1.5px solid currentColor;
+  padding: 0.25rem 0.65rem;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 1px 1px 0px 0px currentColor;
+}
+
+.archival-stamp:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+/* Redacted Secret Text Effect (reveals truth on hover) */
+.redacted-bar {
+  background-color: #141113;
+  color: #141113;
+  padding: 0.05rem 0.4rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  user-select: none;
+  font-family: var(--font-mono);
+  position: relative;
+  display: inline-block;
+}
+
+.redacted-bar:hover {
+  background-color: #B92815;
+  color: #FAF6EE;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Editorial line clamp & dropcaps */
+.drop-cap::first-letter {
+  font-family: var(--font-serif);
+  font-size: 4.8rem;
+  line-height: 0.82;
+  float: left;
+  margin-top: 0.18rem;
+  margin-right: 0.95rem;
+  color: #B92815;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 2px 2px 0px rgba(185, 40, 21, 0.15);
+}
+
+/* Editorial Crosshair Grid */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before,
+.corner-crosshair::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #BEAD90;
+  line-height: 1;
+}
+.corner-crosshair::before {
+  top: 6px;
+  left: 8px;
+}
+.corner-crosshair::after {
+  bottom: 6px;
+  right: 8px;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #FAF6EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D9CBBB;
-  border-radius: 4px;
+  background: #D5C7B0;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #CB5141;
+  background: #B92815;
+}
+
+/* Magnetic Cursor Hide on Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
 }
